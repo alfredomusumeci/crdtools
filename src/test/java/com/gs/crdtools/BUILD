@@ -6,17 +6,6 @@ java_junit5_test(
         "*Test.java",
     ]),
     deps = [
-<<<<<<< HEAD
-#        "//src/main/java/com/gs/crdtools:source-generator",
-        "@maven//:io_kubernetes_client_java_api",
-        "@maven//:io_vavr_vavr",
-        "@maven//:org_apache_commons_commons_compress",
-        "@maven//:org_yaml_snakeyaml",
-    ],
-    test_package = "com.gs.crdtools",
-    size = "small",
-)
-=======
         "//src/main/java/com/gs/crdtools:spec-extractor",
         "//src/main/java/com/gs/crdtools:openapi-src-genner",
         "//src/main/java/com/gs/crdtools:gen-source-from-spec",
@@ -24,4 +13,3 @@ java_junit5_test(
     test_package = "com.gs.crdtools",
     size = "small",
 )
->>>>>>> SpecSourceGenCombined
