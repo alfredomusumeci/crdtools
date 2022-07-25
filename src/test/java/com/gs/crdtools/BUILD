@@ -9,7 +9,6 @@ java_junit5_test(
         "//src/main/java/com/gs/crdtools:spec-extractor",
         "//src/main/java/com/gs/crdtools:openapi-src-genner",
         "//src/main/java/com/gs/crdtools:gen-source-from-spec",
-        "@maven//:io_vavr_vavr",
     ],
     test_package = "com.gs.crdtools",
     size = "small",

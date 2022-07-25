@@ -82,7 +82,7 @@ genrule(
 )
 
 genrule(
-    name = "kcc_java_genned",
+    name = "kcc-java-genned",
     outs = [
         "all-specs.yaml",
         "genned.srcjar",

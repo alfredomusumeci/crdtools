@@ -30,20 +30,20 @@ public class SourceGenFromSpec {
      * to the number of parameters given:
      * 1 - generate the all-specs-only.yaml file
      * 2 - generate the complete source code from the spec file.
-     * @param argsIn The all-specs.yaml and genned.srcjar locations.
+     * @param args The all-specs.yaml and genned.srcjar locations.
      * @throws IOException If any error occurs while loading the given paths.
      * @throws IllegalArgumentException If the number of arguments is not 1 or 2.
      */
-    public static void main(String[] argsIn) throws IllegalArgumentException, IOException {
-        if (argsIn.length == 1) {
+    public static void main(String[] args) throws IllegalArgumentException, IOException {
+        if (args.length == 1) {
             // Generate  yaml only -- rule //:spec
-            var specFile = Paths.get(argsIn[0]);
+            var specFile = Paths.get(args[0]);
 
             extractSpecs(specFile);
-        } else if (argsIn.length == 2) {
+        } else if (args.length == 2) {
             // Generate yaml and java -- rule //:kcc_java_genned
-            var specFile = Paths.get(argsIn[0]);
-            var out = Paths.get(argsIn[1]);
+            var specFile = Paths.get(args[0]);
+            var out = Paths.get(args[1]);
 
             extractSpecs(specFile);
 
@@ -51,7 +51,7 @@ public class SourceGenFromSpec {
             generateSourceInDir(specFile, out, outputDir);
         } else {
             throw new IllegalArgumentException("Invalid number of arguments. " +
-                    "Expected 1 or 2, got " + argsIn.length);
+                    "Expected 1 or 2, got " + args.length);
         }
     }
 
