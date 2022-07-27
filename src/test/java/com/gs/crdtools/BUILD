@@ -9,6 +9,7 @@ java_junit5_test(
         "//src/main/java/com/gs/crdtools:spec-extractor",
         "//src/main/java/com/gs/crdtools:openapi-src-genner",
         "//src/main/java/com/gs/crdtools:gen-source-from-spec",
+        "@bazel_tools//tools/java/runfiles",
     ],
     test_package = "com.gs.crdtools",
     size = "small",

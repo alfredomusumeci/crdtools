@@ -7,8 +7,7 @@ import java.util.jar.JarOutputStream;
 import java.util.zip.ZipEntry;
 
 /**
- * A helper class to help with the generation of source code given an all-specs.yaml file
- * and an output file.
+ * A helper class to help with the generation of source code given some OpenAPIV3 specifications.
  */
 public class SourceGeneratorHelper {
 
