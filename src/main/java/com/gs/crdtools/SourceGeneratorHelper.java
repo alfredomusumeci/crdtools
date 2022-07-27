@@ -1,15 +1,8 @@
 package com.gs.crdtools;
 
-import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.ObjectWriter;
-
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.Map;
 import java.util.jar.JarOutputStream;
 import java.util.zip.ZipEntry;
 
@@ -27,11 +20,11 @@ public class SourceGeneratorHelper {
      * @throws RuntimeException If any issues occur while copying the content.
      */
     static void writeJarToOutput(Path out, Path outputDir) throws IOException, RuntimeException {
-        var jarOut = new JarOutputStream(Files.newOutputStream(out));
-        var root = outputDir.resolve("src/main/java/kccapi");
+        var root = outputDir.resolve("src/main/java/kccapi"); // NB: sorted for stable output
 
         // try with resources is used to close the jarOut stream when the block is exited
-        try (var stream = Files.walk(root).sorted()) { // NB: sorted for stable output
+        try (var jarOut = new JarOutputStream(Files.newOutputStream(out));
+             var stream = Files.walk(root).sorted()) {
             stream.forEach(p -> {
                 if (Files.isRegularFile(p) && p.toString().endsWith(".java")) {
                     var path = root.relativize(p).toString();
@@ -46,8 +39,6 @@ public class SourceGeneratorHelper {
                     }
                 }
             });
-        } finally {
-            jarOut.close();
         }
     }
 
