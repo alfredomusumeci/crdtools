@@ -58,8 +58,16 @@ public class SourceGenFromSpec {
         HashMap <Path, String> result = HashMap.empty();
         var tmpOutputDir = Files.createTempDirectory("openAPIGen");
 
+        // for now, we just want to consider 2 crds, instead of the whole list.
+        // this is for testing purposes.
+        int counter = 0;
         try {
             for (var spec : specs) {
+                counter++;
+                if (counter > 2) {
+                    break;
+                }
+
                 var cc = new CodegenConfigurator()
                         .setInputSpec(spec.openApiSpec())
                         .setLang(CrdtoolsCodegen.class.getCanonicalName())
