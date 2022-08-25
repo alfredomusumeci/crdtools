@@ -48,6 +48,7 @@ maven_install(
         "javax.validation:validation-api:2.0.1.Final",
         "io.kubernetes:client-java-api:16.0.0",
         "info.picocli:picocli:4.6.3",
+        "io.kubernetes:client-java:16.0.0",
     ],
     fetch_sources = True,
     # The rules_jvm_external, when adding the swagger dependencies, downloads
